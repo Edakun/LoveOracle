@@ -6,16 +6,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: リポジトリをチェックアウト
@@ -24,7 +20,7 @@ jobs:
       - name: Node.jsをセットアップ
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 16
           cache: 'npm'
 
       - name: 依存パッケージをインストール
@@ -33,18 +29,7 @@ jobs:
       - name: ビルド
         run: npm run build
 
-      - name: GitHub Pagesにアップロード
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: デプロイ
-        id: deployment
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
