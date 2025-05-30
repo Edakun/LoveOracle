@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Heart, Copy, Check } from 'lucide-react'
-import { CompatibilityResult } from '../types'
+import type { CompatibilityResult } from '../types'
 import toast from 'react-hot-toast'
 
 interface ResultCardProps {

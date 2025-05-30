@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import LoveForm from './components/LoveForm'
 import ResultCard from './components/ResultCard'
 import { calculateCompatibility } from './utils/loveCalculator'
-import { CompatibilityResult } from './types'
+import type { CompatibilityResult } from './types'
 
 const App = () => {
   const [result, setResult] = useState<CompatibilityResult | null>(null)
@@ -94,7 +94,7 @@ const App = () => {
 
         {/* フッター */}
         <footer className="text-center text-sm text-gray-600 mt-12">
-          <p>© {new Date().getFullYear()} 💘 LoveOracle</p>
+          <p> {new Date().getFullYear()} LoveOracle</p>
           <a 
             href="https://github.com/Edakun/LoveOracle" 
             target="_blank" 
@@ -102,7 +102,7 @@ const App = () => {
             className="text-love-red hover:underline inline-flex items-center mt-1"
           >
             <Heart size={14} className="mr-1" />
-            GitHubリポジトリ
+            GitHub
           </a>
         </footer>
       </div>

@@ -1,8 +1,13 @@
 import dayjs from 'dayjs'
-import { CompatibilityResult } from '../types'
+import type { CompatibilityResult } from '../types'
+
+// コメントテーブルの型定義
+type CommentTable = {
+  [key: number]: string[]
+}
 
 // 相性スコアに基づくコメントテーブル
-const COMMENT_TABLE = {
+const COMMENT_TABLE: CommentTable = {
   90: [
     "運命に導かれた2人。この出会いは星々が用意した特別な贈り物です。",
     "魂の共鳴を感じる相性。2人で過ごす時間はまるで魔法のよう。",
