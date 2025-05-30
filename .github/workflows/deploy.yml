@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: リポジトリをチェックアウト
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Node.jsをセットアップ
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: 18
           cache: 'npm'
@@ -47,4 +47,4 @@ jobs:
     steps:
       - name: デプロイ
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v1
