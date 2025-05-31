@@ -25,10 +25,23 @@ jobs:
       - name: 依存パッケージをインストール
         run: npm ci
 
+      - name: 環境変数を設定
+        run: |
+          echo "NODE_ENV=production" >> $GITHUB_ENV
+          echo "PUBLIC_URL=https://edakun.github.io/LoveOracle" >> $GITHUB_ENV
+
       - name: ビルド
         run: npm run build
+
+      - name: ビルド成果物を確認
+        run: |
+          echo "ビルド成果物の内容:"
+          ls -la dist/
+          echo "index.htmlの内容:"
+          cat dist/index.html
 
       - name: デプロイ
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
+          clean: true
