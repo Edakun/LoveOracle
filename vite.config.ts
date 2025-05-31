@@ -5,7 +5,7 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/LoveOracle/', // GitHubリポジトリ名をベースパスに設定
+  base: './', // 相対パスに変更
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
